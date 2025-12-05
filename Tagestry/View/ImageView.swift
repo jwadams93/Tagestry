@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct ImageView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("imageTest")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            .clipped()
+            .aspectRatio(1, contentMode: .fit)
     }
 }
+
+
 
 #Preview {
     ImageView()
