@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct addButton: View {
+    
+    @Binding var isPickerPresented: Bool
+    
     var body: some View {
         Button("Add asset", systemImage: "plus", action: addAsset)
             .labelStyle(.iconOnly)
@@ -18,10 +22,10 @@ struct addButton: View {
     }
     
     func addAsset() {
-        
+        isPickerPresented = true
     }
 }
 
 #Preview {
-    addButton()
+    addButton(isPickerPresented: .constant(false))
 }
