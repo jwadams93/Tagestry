@@ -10,8 +10,8 @@ import Foundation
 
 @Model
 class UserImage {
-    var id: UUID
-    var filename: String
+    @Attribute(.unique) var id: UUID
+    @Attribute(.unique) var filename: String
     var dateAdded: Date
     
     var tags: [Tag]

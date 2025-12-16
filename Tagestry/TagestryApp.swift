@@ -14,7 +14,7 @@ struct TagestryApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for : [UserImage.self, Tag.self])
         }
-        .modelContainer(for: [UserImage.self, Tag.self])
     }
 }

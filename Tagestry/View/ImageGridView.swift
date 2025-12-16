@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
+import os
 
 struct ImageGridView: View {
-
+    
+    let log = Logger()
+    
     @State var detail: String? = nil
+    @Environment(\.modelContext) private var modelContext
 
+    @Query() var allPhotos: [UserImage]
+    
     var body: some View {
         ZStack {
             photoGrid
@@ -25,10 +32,10 @@ struct ImageGridView: View {
             LazyVGrid(columns: [
                 .init(.adaptive(minimum: 100, maximum: .infinity), spacing: 3)
             ]) {
-                ForEach(1..<14) { i in
-                    ImageView()
-                        .onTapGesture {
-                            detail = "imageTest"
+                ForEach(allPhotos) { photo in
+                    ImageView(imageName: photo.filename)
+                        .onAppear {
+                            log.debug("Adding a photo to grid: \(photo.filename)")
                         }
                 }
             }
