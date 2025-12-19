@@ -36,7 +36,6 @@ struct ContentView: View {
                 
                 let asset = UserImage(filename: filename)
                 modelContext.insert(asset)
-                print("Holy fuck did it do ANYTHING??????")
             } catch {
                 print("Failed to save: \(error)")
             }
